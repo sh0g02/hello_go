@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"io/ioutil"
+	"log"
+	"net/http"
+)
 
 func main() {
-	fmt.Printf("%s\n", "100")
+	resp, _ := http.Get("http://www.oreilly.co.jp/catalog/soon.xml")
+	body, _ := ioutil.ReadAll(resp.Body)
+	log.Print(string(body))
+	resp.Body.Close()
 }
