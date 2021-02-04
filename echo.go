@@ -12,6 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, fmt.Sprint(err), http.StatusInternalServerError)
 		return
+		
 	}
 	fmt.Println(string(dump))
 	fmt.Fprintf(w, "<html><body>hello</body></html>\n")
